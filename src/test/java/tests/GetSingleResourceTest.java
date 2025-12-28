@@ -1,6 +1,9 @@
 package tests;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.ResourceData;
@@ -9,10 +12,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("Работа с информацией о ресурсах")
 public class GetSingleResourceTest {
     private final String BASE_URL = "https://reqres.in/api/unknown";
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    @Story("Получение информации о конкретном ресурсе")
+    @Description("Получение информации о ресурсе: название, цвет, год и т.д")
     @Test
     public void testGetSingleResource() throws Exception {
         Response response = RestAssured

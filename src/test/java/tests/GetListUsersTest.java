@@ -1,6 +1,7 @@
 package tests;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.UserData;
@@ -10,10 +11,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Epic("Работа с данными пользователей")
+@Feature("Получает информацию о пользователе")
 public class GetListUsersTest {
     private final String BASE_URL = "https://reqres.in/api/users";
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    @Story("Получение информации о списке пользователей")
+    @Description("Получение информации о всех пользователях")
+    @Severity(SeverityLevel.MINOR)
     @Test
     public void testGetListUsers() throws Exception {
         Response response = RestAssured
